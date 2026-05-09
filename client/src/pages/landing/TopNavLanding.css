@@ -1,0 +1,129 @@
+.top-nav-clean {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.nav-scrolled {
+  height: 70px;
+  background: rgba(10, 10, 12, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo-simple {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--gradient-primary);
+  border-radius: 4px;
+  transform: rotate(45deg);
+}
+
+.logo-brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+
+.nav-links-desktop {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.nav-link-item {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+}
+
+.nav-link-item:hover {
+  color: var(--primary-color);
+}
+
+.nav-actions-desktop {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 13px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  color: var(--text-primary);
+}
+
+/* Mobile Nav */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-primary);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-overlay.open {
+  transform: translateY(0);
+}
+
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+  width: 80%;
+}
+
+.mobile-nav-content a {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+}
+
+.mobile-divider {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+}
+
+@media (max-width: 992px) {
+  .nav-links-desktop,
+  .nav-actions-desktop {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+}

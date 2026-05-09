@@ -1,0 +1,67 @@
+.process {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.step-item-clean {
+  position: relative;
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.step-badge {
+  width: 50px;
+  height: 50px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--primary-color);
+  transition: var(--transition-base);
+}
+
+.step-item-clean:hover .step-badge {
+  background: var(--gradient-primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(216, 17, 230, 0.3);
+}
+
+.step-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.step-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Connective lines for desktop */
+@media (min-width: 992px) {
+  .step-item-clean:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 45px;
+    left: 60%;
+    width: 80%;
+    height: 1px;
+    background: var(--border-color);
+    z-index: 0;
+  }
+}

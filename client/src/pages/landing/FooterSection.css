@@ -1,0 +1,135 @@
+.footer-clean {
+  background: var(--bg-primary);
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-grid-simple {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  gap: var(--spacing-3xl);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.logo-minimal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+}
+
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+}
+
+.footer-tagline {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.footer-links-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-col h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+}
+
+.footer-col ul li a:hover {
+  color: var(--primary-color);
+}
+
+.footer-contact h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+.contact-details li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.footer-bottom-bar {
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.footer-credits span {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footer-grid-simple {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    text-align: center;
+  }
+  
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .logo-minimal {
+    justify-content: center;
+  }
+  
+  .footer-links-group {
+    justify-content: space-between;
+  }
+  
+  .contact-details li {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-links-group {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+  
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}

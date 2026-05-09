@@ -1,0 +1,117 @@
+.about-grid-clean {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  margin-top: -50px;
+
+  .about-visual-simple {
+    display: flex;
+    justify-content: center;
+  }
+
+  .visual-circle {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+  }
+
+  .visual-icon-main {
+    color: var(--primary-color);
+    z-index: 2;
+  }
+
+  .orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed var(--border-strong);
+  }
+
+  .orbit-1 {
+    width: 340px;
+    height: 340px;
+    animation: rotate 20s linear infinite;
+  }
+
+  .orbit-2 {
+    width: 400px;
+    height: 400px;
+    animation: rotate 30s linear reverse infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .about-para {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+
+  .value-chip {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .text-success {
+    color: #28C840;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .about-grid-clean {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .about-content-clean {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-visual-simple {
+      margin-bottom: var(--spacing-3xl);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .about-values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .visual-circle {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
