@@ -13,5 +13,32 @@
 - Database: MySQL
 
 
+## Project Structure
+
+```text
+project-20/
+├── client/                # React Frontend (Vite)
+│   ├── public/            # Static assets
+│   └── src/
+│       ├── assets/        # Images, icons
+│       ├── components/    # Reusable UI components
+│       ├── context/       # State management
+│       ├── hooks/         # Custom React hooks
+│       ├── layouts/       # Page layouts
+│       ├── pages/         # Page components
+│       ├── services/      # API communication
+│       ├── styles/        # Global styles
+│       └── utils/         # Helper functions
+└── server/                # Node.js Backend
+    ├── src/
+    │   ├── config/        # DB & env configuration
+    │   ├── controllers/   # Route handlers
+    │   ├── middleware/    # Auth & error handling
+    │   ├── models/        # DB interactions
+    │   ├── routes/        # API endpoints
+    │   └── utils/         # Helper functions
+    └── .env               # Environment variables
+```
+
 ## Author
 - **Owen Jerusalem**
