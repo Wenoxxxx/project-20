@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './HeroSection.css';
 
 export default function HeroSection() {
@@ -21,10 +22,10 @@ export default function HeroSection() {
           </p>
 
           <div className="hero-simple-actions">
-            <a href="#process" className="btn btn-primary">
+            <Link to="/signup" className="btn btn-primary">
               Get Started
               <ArrowRight size={18} />
-            </a>
+            </Link>
             <a href="#about" className="btn btn-outline">
               Learn More
             </a>

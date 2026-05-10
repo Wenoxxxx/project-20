@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, LogIn } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './TopNavLanding.css';
 
 export default function TopNavLanding() {
@@ -29,11 +30,11 @@ export default function TopNavLanding() {
         </div>
 
         <div className="nav-actions-desktop">
-          <button className="btn btn-outline btn-sm">Sign In</button>
-          <button className="btn btn-primary btn-sm">Get Started</button>
+          <Link to="/login" className="btn btn-outline btn-sm">Sign In</Link>
+          <Link to="/signup" className="btn btn-primary btn-sm">Get Started</Link>
         </div>
 
-        <button 
+        <button
           className="mobile-menu-toggle"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -48,8 +49,8 @@ export default function TopNavLanding() {
           <a href="#process" onClick={() => setIsMobileMenuOpen(false)}>Process</a>
           <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
           <hr className="mobile-divider" />
-          <button className="btn btn-outline">Sign In</button>
-          <button className="btn btn-primary">Get Started</button>
+          <Link to="/login" className="btn btn-outline" onClick={() => setIsMobileMenuOpen(false)}>Sign In</Link>
+          <Link to="/signup" className="btn btn-primary" onClick={() => setIsMobileMenuOpen(false)}>Get Started</Link>
         </div>
       </div>
     </nav>

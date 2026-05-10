@@ -1,0 +1,25 @@
+{
+  "name": "project-20",
+  "version": "1.0.0",
+  "description": "- is a web-based system for Kiliog Elementary School project-20 tracker. - project 20 provides financial aid to a deceased teacher’s family through pooled contributions, fostering unity and compassion in DepEd Bukidnon.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wenoxxxx/project-20.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Wenoxxxx/project-20/issues"
+  },
+  "homepage": "https://github.com/Wenoxxxx/project-20#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
