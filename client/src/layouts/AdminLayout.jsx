@@ -56,22 +56,24 @@ export default function AdminLayout() {
       {/* Main Content Area */}
       <main className="admin-main">
         <header className="admin-header">
-          <div className="header-search">
-            <Search size={18} />
-            <input type="text" placeholder="Search for cases, teachers..." />
-          </div>
+          <div className="header-container">
+            <div className="header-search">
+              <Search size={18} />
+              <input type="text" placeholder="Search for cases, teachers..." />
+            </div>
 
-          <div className="header-actions">
-            <button className="icon-btn">
-              <Bell size={20} />
-              <span className="badge"></span>
-            </button>
-            <div className="user-profile">
-              <div className="user-info">
-                <span className="user-name">{user?.name}</span>
-                <span className="user-role">Administrator</span>
+            <div className="header-actions">
+              <button className="icon-btn">
+                <Bell size={20} />
+                <span className="badge"></span>
+              </button>
+              <div className="user-profile">
+                <div className="user-info">
+                  <span className="user-name">{user?.name}</span>
+                  <span className="user-role">Administrator</span>
+                </div>
+                <img src={user?.picture || "https://via.placeholder.com/40"} alt="Avatar" className="user-avatar" />
               </div>
-              <img src={user?.picture || "https://via.placeholder.com/40"} alt="Avatar" className="user-avatar" />
             </div>
           </div>
         </header>
