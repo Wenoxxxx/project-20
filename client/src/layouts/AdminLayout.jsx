@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -7,7 +7,9 @@ import {
   LogOut,
   Settings,
   Bell,
-  Search
+  Search,
+  Menu,
+  X
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import '../styles/admin.css';
@@ -15,31 +17,43 @@ import '../styles/admin.css';
 export default function AdminLayout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
-    <div className="admin-layout">
+    <div className={`admin-layout ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+      {/* Mobile Overlay */}
+      {isSidebarOpen && <div className="sidebar-overlay" onClick={closeSidebar}></div>}
+
       {/* Sidebar */}
-      <aside className="admin-sidebar">
-        <div className="sidebar-header" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
-          <div className="logo-icon-dot"></div>
-          <span className="logo-brand">Admin Panel</span>
+      <aside className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <div className="sidebar-header">
+          <div className="logo-section" onClick={() => { navigate('/'); closeSidebar(); }} style={{ cursor: 'pointer' }}>
+            <div className="logo-icon-dot"></div>
+            <span className="logo-brand">Admin Panel</span>
+          </div>
+          <button className="mobile-close-btn" onClick={closeSidebar}>
+            <X size={24} />
+          </button>
         </div>
 
         <nav className="sidebar-nav">
-          <NavLink to="/admin/dashboard" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/admin/dashboard" onClick={closeSidebar} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <LayoutDashboard size={20} />
             <span>Dashboard</span>
           </NavLink>
-          <NavLink to="/admin/cases" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/admin/cases" onClick={closeSidebar} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Briefcase size={20} />
             <span>Cases</span>
           </NavLink>
-          <NavLink to="/admin/teachers" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+          <NavLink to="/admin/teachers" onClick={closeSidebar} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <Users size={20} />
             <span>Teachers</span>
           </NavLink>
           <div className="nav-divider">System</div>
-          <NavLink to="/admin/settings" className="nav-item">
+          <NavLink to="/admin/settings" onClick={closeSidebar} className="nav-item">
             <Settings size={20} />
             <span>Settings</span>
           </NavLink>
@@ -57,20 +71,25 @@ export default function AdminLayout() {
       <main className="admin-main">
         <header className="admin-header">
           <div className="header-container">
-            <div className="header-search">
-              <Search size={18} />
-              <input type="text" placeholder="Search for cases, teachers..." />
+            <div className="header-left">
+              <button className="mobile-menu-btn" onClick={toggleSidebar}>
+                <Menu size={24} />
+              </button>
+              <div className="header-search">
+                <Search size={18} />
+                <input type="text" placeholder="Search..." />
+              </div>
             </div>
 
             <div className="header-actions">
-              <button className="icon-btn">
+              <button className="icon-btn mobile-hidden">
                 <Bell size={20} />
                 <span className="badge"></span>
               </button>
               <div className="user-profile">
-                <div className="user-info">
+                <div className="user-info mobile-hidden">
                   <span className="user-name">{user?.name}</span>
-                  <span className="user-role">Administrator</span>
+                  <span className="user-role">Admin</span>
                 </div>
                 <img src={user?.picture || "https://via.placeholder.com/40"} alt="Avatar" className="user-avatar" />
               </div>
