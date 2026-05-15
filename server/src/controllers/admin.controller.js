@@ -13,8 +13,8 @@ exports.getDashboardStats = (req, res) => {
 exports.getTeachersList = (req, res) => {
   // Mock data
   res.json([
-    { id: 1, name: "Dr. Elizabeth Tan", department: "Science", email: "e.tan@school.edu", phone: "+63 912 345 6789", status: "Active" },
-    { id: 2, name: "Prof. Ricardo Reyes", department: "Mathematics", email: "r.reyes@school.edu", phone: "+63 912 345 6788", status: "Active" },
+    { id: 1, name: "Dr. Elizabeth Tan", email: "e.tan@school.edu", phone: "+63 912 345 6789", status: "Active" },
+    { id: 2, name: "Prof. Ricardo Reyes", email: "r.reyes@school.edu", phone: "+63 912 345 6788", status: "Active" },
   ]);
 };
 

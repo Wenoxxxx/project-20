@@ -3,16 +3,16 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 exports.verifyGoogleToken = async (req, res) => {
   const { token } = req.body;
-  
+
   try {
     const ticket = await client.verifyIdToken({
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,
     });
-    
+
     const payload = ticket.getPayload();
     const { email, name, picture } = payload;
-    
+
     res.json({
       success: true,
       user: {
